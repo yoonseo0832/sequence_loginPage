@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기 완료</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+       body {
+            margin: 0;
+            font-family: 'SUIT', sans-serif;
+            background-color: #151515;
+            color: white;
+        }
+
+        .header-top {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #151515;
+        }
+
+        .header-top img {
+            width: 138px;
+            margin-left: 100px;
+        }
+
+        .header-top ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            gap: 160px;
+        }
+
+        .header-top ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 28px;
+            font-family: 'Playfair Display';
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header-top ul li a:hover {
+            color: #E32929;
+        }
+
+        #login-btn {
+            background: none;
+            color: #E32929;
+            border: 1px solid #E32929;
+            padding: 4px 20px;
+            margin-right: 100px;
+            width: 114px;
+            cursor: pointer;
+            font-size: 24px;
+            font-style: italic;
+            font-family: 'Playfair Display';
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        #login-btn:hover {
+            background: #E32929;
+            color: white;
+        }
+
+        .content-area {
+            text-align: center;
+            margin-top: 90px;
+        }
+
+        h3 {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 190px;
+        }
+
+        .result-box {
+            width: 300px;
+            margin: 0 auto 100px;
+            padding: 20px;
+            border: 1px solid #757575;
+            text-align: center;
+        }
+
+        .result-box p {
+            font-size: 20px;
+            color: #9E9E9E;
+        }
+
+        .result-box strong {
+            font-size: 24px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn {
+            width: 556px;
+            padding: 20px 32px;
+            font-size: 28px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn.login {
+            background-color: #E32929;
+            border: none;
+            color: #212121;
+        }
+
+        .btn.login:hover {
+            background-color: #ff4d4d;
+        }
+
+        .find-pwd {
+            background: none;
+            border: 2px solid #E32929;
+            color: #E32929;
+            display: flex;
+            justify-content: center;    
+            padding-right: 0px;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .find-pwd:hover {
+            background-color: #E32929;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="header-top">
+            <ul>
+                <li><img src="images/logo_Text.png" alt="Logo" class="pageLogo"></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">Announcement</a></li>
+                <li><a href="#">Archive</a></li>
+            </ul>
+        </div>
+
+        <div class="content-area">
+            <h3>아이디 찾기 완료</h3>
+            <div class="result-box">
+                <p>홍길동님의 아이디</p>
+                <strong>sequence0101</strong>
+                <p>가입 날짜: 24.01.01</p>
+            </div>
+            <div class="button-container">
+                <button class="btn login" onclick="goToLogin()">로그인</button>
+                <button class="btn find-pwd" onclick="goToFindPwd()">
+                    비밀번호 찾기
+                    <img src="images/Union.png" id="arrow">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goToLogin() {
+            window.location.href = "loginPage.html"; // 로그인 페이지로 이동
+        }
+
+        function goToFindPwd() {
+            window.location.href = "password.html"; // 아이디 찾기 페이지로 이동
+        }
+    </script>
+</body>
+
+</html>

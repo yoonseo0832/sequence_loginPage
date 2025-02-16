@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {  
+    font-family: 'pass';  
+    font-style: normal;  
+    font-weight: 400;  
+    src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAATsAA8AAAAAB2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAcg9+z70dERUYAAAF0AAAAHAAAAB4AJwANT1MvMgAAAZAAAAA/AAAAYH7AkBhjbWFwAAAB0AAAAFkAAAFqZowMx2N2dCAAAAIsAAAABAAAAAQAIgKIZ2FzcAAAAjAAAAAIAAAACAAAABBnbHlmAAACOAAAALkAAAE0MwNYJ2hlYWQAAAL0AAAAMAAAADYPA2KgaGhlYQAAAyQAAAAeAAAAJAU+ATJobXR4AAADRAAAABwAAAAcCPoA6mxvY2EAAANgAAAAEAAAABAA5gFMbWF4cAAAA3AAAAAaAAAAIAAKAE9uYW1lAAADjAAAARYAAAIgB4hZ03Bvc3QAAASkAAAAPgAAAE5Ojr8ld2ViZgAABOQAAAAGAAAABuK7WtIAAAABAAAAANXulPUAAAAA1viLwQAAAADW+JM4eNpjYGRgYOABYjEgZmJgBEI2IGYB8xgAA+AANXjaY2BifMg4gYGVgYVBAwOeYEAFjMgcp8yiFAYHBl7VP8wx/94wpDDHMIoo2DP8B8kx2TLHACkFBkYA8/IL3QB42mNgYGBmgGAZBkYGEEgB8hjBfBYGDyDNx8DBwMTABmTxMigoKKmeV/3z/z9YJTKf8f/X/4/vP7pldosLag4SYATqhgkyMgEJJnQFECcMOGChndEAfOwRuAAAAAAiAogAAQAB//8AD3jaY2BiUGJgYDRiWsXAzMDOoLeRkUHfZhM7C8Nbo41srHdsNjEzAZkMG5lBwqwg4U3sbIx/bDYxgsSNBRUF1Y0FlZUYBd6dOcO06m+YElMa0DiGJIZUxjuM9xjkGRhU2djZlJXU1UDQ1MTcDASNjcTFQFBUBGjYEkkVMJCU4gcCKRTeHCk+fn4+KSllsJiUJEhMUgrMUQbZk8bgz/iA8SRR9qzAY087FjEYD2QPDDAzMFgyAwC39TCRAAAAeNpjYGRgYADid/fqneL5bb4yyLMwgMC1H90HIfRkCxDN+IBpFZDiYGAC8QBbSwuceNpjYGRgYI7594aBgcmOAQgYHzAwMqACdgBbWQN0AAABdgAiAAAAAAAAAAABFAAAAj4AYgI+AGYB9AAAAAAAKgAqACoAKgBeAJIAmnjaY2BkYGBgZ1BgYGIAAUYGBNADEQAFQQBaAAB42o2PwUrDQBCGvzVV9GAQDx485exBY1CU3PQgVgIFI9prlVqDwcZNC/oSPoKP4HNUfQLfxYN/NytCe5GwO9/88+/MBAh5I8C0VoAtnYYNa8oaXpAn9RxIP/XcIqLreZENnjwvyfPieVVdXj2H7DHxPJH/2/M7sVn3/MGyOfb8SWjOGv4K2DRdctpkmtqhos+D6ISh4kiUUXDj1Fr3Bc/Oc0vPqec6A8aUyu1cdTaPZvyXyqz6Fm5axC7bxHOv/r/dnbSRXCk7+mpVrOqVtFqdp3NKxaHUgeod9cm40rtrzfrt2OyQa8fppCO9tk7d1x0rpiQcuDuRkjjtkHt16ctbuf/radZY52/PnEcphXpZOcofiEZNcQAAeNpjYGIAg///GBgZsAF2BgZGJkZmBmaGdkYWRla29JzKggxD9tK8TAMDAxc2D0MLU2NjENfI1M0ZACUXCrsAAAABWtLiugAA) format('woff');
+}
+
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: #151515;
+    color: #FFFFFF;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-top {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #151515;
+}
+
+.header-top img {
+    width: 138px; 
+    margin-left: 100px;
+}
+
+.header-top ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 160px;
+}
+
+.header-top ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 28px;
+    font-family: 'Playfair Display';
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-top ul li a:hover {
+    color: #E32929;
+}
+
+#login-btn {
+    background: none;
+    color: #E32929;
+    border: 1px solid #E32929;
+    padding: 4px 24px;
+    margin-right: 100px;
+    width: 114px;
+    cursor: pointer;
+    font-size: 24px;
+    font-style:italic;
+    line-height: 33.6px;
+    font-family: 'Playfair Display';
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#login-btn:hover {
+    background: #E32929;
+    color: white;
+}
+
+#content {
+    margin-top: 100px;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageIcon {
+    margin: 0 auto;
+    margin-top: 240px;
+    display: block;
+}
+
+#content-title {
+    font-size: 44px;
+    font-weight: 500;
+    margin-top: 60px;
+    line-height: 61.6px;
+    margin-bottom: 120px;
+}
+
+#wrongId{
+    visibility: hidden;
+    color: #E32929;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    font-family: 'SUIT-Regular';
+}
+
+input {
+    background-color: #212121;
+    color: #FFFFFF;
+    border: none;
+    height: 67px;
+    width: 45%;
+    margin: 20px auto;
+    padding: 16px 115px;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 27px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, outline 0.3s ease;
+}
+input[type="password"]{
+    font-family: 'pass','Roboto', Helvetica, Arial, sans-serif;
+    -webkit-text-security: disc; /* Webkit */
+    -moz-text-security: disc; /* Older Firefox */
+}
+input::placeholder {
+    color: #757575;
+    font-size: 18px;
+    font-family: 'SUIT-Regular';
+}
+#findSet{
+    display:flex;
+    width: 45%;
+    margin: 0 auto;
+}
+.findText-id{
+    display: inline-block;
+    color: #BDBDBD;
+    font-size: 14px;
+    margin: 20px 0px;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.findText-pwd{
+    display: inline-block;
+    color: #BDBDBD;
+    font-size: 14px;
+    margin: 20px 0px;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+    padding-left: 235px;
+    transition: color 0.3s ease;
+}
+
+.findText:hover {
+    color: #E32929;
+}
+
+#content-login-btn, #content-member-btn {
+    height: 56px;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 28px;
+    color: white;
+    line-height: 42px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#arrow{
+    vertical-align: -6px;
+    margin-left: 24px;
+}
+
+#content-login-btn {
+    background-color: #E32929;
+    height: 67px;
+    width: 45%
+}
+#btns{
+    display:flex;
+    flex-direction: column;
+    margin-top: 120px;
+    margin-bottom: 500px;
+}
+
+#content-login-btn:hover {
+    background-color: #B22222;
+}
+
+#content-member-btn {
+    background-color: transparent;
+    border: 2px solid #E32929;
+    color: #E32929;
+        margin-top: 20px;
+    height: 67px;
+    width: 45%
+}
+
+#content-member-btn:hover {
+    background-color: #E32929;
+    color: white;
+}
+
+#member-arrow-merg{
+    margin: 0;
+}

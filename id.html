@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=SUIT:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'SUIT', sans-serif;
+            background-color: #151515;
+            color: white;
+        }
+
+        .header-top {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #151515;
+        }
+
+        .header-top img {
+            width: 138px;
+            margin-left: 100px;
+        }
+
+        .header-top ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            gap: 160px;
+        }
+
+        .header-top ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 28px;
+            font-family: 'Playfair Display';
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header-top ul li a:hover {
+            color: #E32929;
+        }
+
+        #login-btn {
+            background: none;
+            color: #E32929;
+            border: 1px solid #E32929;
+            padding: 4px 20px;
+            margin-right: 100px;
+            width: 114px;
+            cursor: pointer;
+            font-size: 24px;
+            font-style: italic;
+            font-family: 'Playfair Display';
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        #login-btn:hover {
+            background: #E32929;
+            color: white;
+        }
+
+        .content-area {
+            text-align: center;
+            margin-top: 90px;
+        }
+
+        h3 {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 190px;
+        }
+
+        .main-grid {
+            display: flex;
+            gap: 40px;
+            margin-left: 15%;
+        }
+
+        .main-grid-1 {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            margin-left: 210px;
+        }
+
+        .input-group {
+            width: 450px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 20px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #616161;
+            background: none;
+            font-size: 18px;
+            color: #F5F5F5;
+            outline: none;
+        }
+
+        .button-container {
+            margin-top: 240px;
+        }
+
+        .gender-btn {
+            width: 60px;
+            height: 40px;
+            border: 1px solid #616161;
+            color: #616161;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            border-radius: 100px;
+        }
+
+        .gender-btn.selected {
+            border: 1px solid #fafafa;
+            color: white;
+        }
+
+        .gender-btn:not(.selected) {
+            border: 1px solid #616161;
+            color: #616161;
+        }
+
+        #find-id-btn {
+            width: 556px;
+            padding: 20px 32px;
+            background-color: #212121;
+            border: none;
+            color: #616161;
+            font-size: 28px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 250px;
+        }
+
+        #find-id-btn.active {
+            background-color: #E32929;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="header-top">
+            <ul>
+                <li><img src="images/logo_Text.png" alt="textLogo" class="pageLogo"></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">Announcement</a></li>
+                <li><a href="#">Archive</a></li>
+            </ul>
+            <button id="login-btn" onclick="goToLogin()">Log In</button>
+        </div>
+
+        <div class="content-area">
+            <h3>아이디 찾기</h3>
+            <div class="main-grid">
+                <div class="input-group">
+                    <label>회원 정보</label>
+                </div>
+                <div class="input-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" placeholder="홍길동" required>
+                </div>
+                <div class="input-group">
+                    <label for="birth">생년월일</label>
+                    <input type="text" id="birth" placeholder="2000. 01. 01" required>
+                </div>
+                <div class="input-group">
+                    <label for="gender">성별</label>
+                    <button type="button" id="male-btn" class="gender-btn selected"
+                        onclick="selectGender('male')">남성</button>
+                    <button type="button" id="female-btn" class="gender-btn"
+                        onclick="selectGender('female')">여성</button>
+                </div>
+            </div>
+            <div class="main-grid-1">
+                <div class="input-group">
+                    <label></label>
+                </div>
+                <div class="input-group">
+                    <label for="tel">휴대전화 번호</label>
+                    <input type="tel" id="tel" placeholder="010-1234-5678" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" placeholder="sequence@email.com" required>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="find-id-btn" onclick="toclickpage()" class="inactive">아이디 찾기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToLogin() {
+            window.location.href = "loginPage.html";
+        }
+
+        function toclickpage() {
+            window.location.href = "idDone.html";
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            selectGender('male'); // 페이지 로드 시 "남성" 버튼 기본 선택
+        });
+
+        function selectGender(gender) {
+            const maleBtn = document.getElementById("male-btn");
+            const femaleBtn = document.getElementById("female-btn");
+
+            if (gender === "male") {
+                maleBtn.classList.add("selected");
+                femaleBtn.classList.remove("selected");
+            } else {
+                femaleBtn.classList.add("selected");
+                maleBtn.classList.remove("selected");
+            }
+
+            checkInputs(); // 성별 선택 후 버튼 활성화 체크
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nameInput = document.getElementById("name");
+            const birthInput = document.getElementById("birth");
+            const phoneInput = document.getElementById("tel");
+            const emailInput = document.getElementById("email");
+            const findIdBtn = document.getElementById("find-id-btn");
+            const genderButtons = document.querySelectorAll(".gender-btn");
+            let selectedGender = "";
+
+            genderButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    genderButtons.forEach(btn => btn.classList.remove("selected"));
+                    button.classList.add("selected");
+                    selectedGender = button.dataset.gender;
+                    checkInputs();
+                });
+            });
+
+            function checkInputs() {
+                const isGenderSelected = selectedGender !== "";
+
+                if (
+                    nameInput.value.trim() !== "" &&
+                    birthInput.value.trim() !== "" &&
+                    phoneInput.value.trim() !== "" &&
+                    emailInput.value.trim() !== "" &&
+                    isGenderSelected
+                ) {
+                    findIdBtn.classList.add("active");
+                    findIdBtn.removeAttribute("disabled");
+                } else {
+                    findIdBtn.classList.remove("active");
+                    findIdBtn.setAttribute("disabled", "true");
+                }
+            }
+
+            nameInput.addEventListener("input", checkInputs);
+            birthInput.addEventListener("input", checkInputs);
+            phoneInput.addEventListener("input", checkInputs);
+            emailInput.addEventListener("input", checkInputs);
+        });
+
+    </script>
+</body>
+
+</html>

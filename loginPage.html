@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence</title>
+    <link rel="icon" href="images/Group 11.png">
+    <link href="loginPage.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="root">
+        <div class="header-top">
+            <!--<img src="images/logo_Text.png" alt="textLogo" class="pageLogo">-->
+            <ul>
+                <li><img src="images/logo_Text.png" alt="textLogo" class="pageLogo"></li>
+                <li><a href="">Project</a></li>
+                <li><a href="">Announcement</a></li>
+                <li><a href="">Archive</a></li>
+            </ul>
+            <button id="login-btn" href="loginPage.html">Login</button>
+        </div>
+        <div id="content">
+            <img src="images/Group 10.png" alt="iconLogo" class="pageIcon">
+            <h3 id="content-title">Login</h3>
+            <p id="wrongId" style="visibility: hidden;">존재하지 않는 아이디입니다.</p>
+            <input type="text" name="userId" id="inputId" placeholder="아이디를 입력해주세요">
+            <input type="password" name="userPwd" id="inputPwd" id="displayPwd" placeholder="비밀번호를 입력해주세요">
+            <input type="hidden" id="realPwd">
+            <div id="findSet">
+                <a href="id.html" class="findText-id">아이디찾기 ></a>
+                <a href="password.html" class="findText-pwd">비밀번호 찾기 ></a>
+            </div>
+            <div id="btns">
+                <button id="content-login-btn" onClick="loginButton();">로그인</button>
+                <button id="content-member-btn">
+                    <p id="member-arrow-merg" onClick="registerUser();">회원가입하기<img src="images/Union.png" id="arrow"></p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

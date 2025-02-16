@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=SUIT:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'SUIT', sans-serif;
+            background-color: #151515;
+            color: white;
+        }
+
+        .header-top {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #151515;
+        }
+
+        .header-top img {
+            width: 138px;
+            margin-left: 100px;
+        }
+
+        .header-top ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            gap: 160px;
+        }
+
+        .header-top ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 28px;
+            font-family: 'Playfair Display';
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header-top ul li a:hover {
+            color: #E32929;
+        }
+
+        #login-btn {
+            background: none;
+            color: #E32929;
+            border: 1px solid #E32929;
+            padding: 4px 20px;
+            margin-right: 100px;
+            width: 114px;
+            cursor: pointer;
+            font-size: 24px;
+            font-style: italic;
+            line-height: 33.6px;
+            font-family: 'Playfair Display';
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        #login-btn:hover {
+            background: #E32929;
+            color: white;
+        }
+        .content-area {
+            text-align: center;
+            margin-top: 50px;
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+        }
+
+        h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .result-box {
+            border: 1px solid #757575;
+            width: 254px;
+            height: 130px;
+            margin: 0px auto 140px;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .result-box p {
+            margin: 10px 0;
+            color: #9E9E9E;
+        }
+
+        .result-box strong {
+            font-size: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button-container button {
+            width: 300px;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #login {
+            background-color: #E32929;
+            color: white;
+            border: none;
+        }
+
+        #login:hover {
+            background-color: #ff4d4d;
+        }
+
+        #find-password {
+            background: none;
+            color: #E32929;
+            border: 1px solid #E32929;
+        }
+
+        #find-password:hover {
+            background-color: #E32929;
+            color: white;
+        }
+        #nameof{
+            margin-bottom: 48px;
+            margin-top: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="header-top">
+            <ul>
+                <li><img src="images/logo_Text.png" alt="textLogo" class="pageLogo"></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">Announcement</a></li>
+                <li><a href="#">Archive</a></li>
+            </ul>
+            <button id="login-btn">Log In</button>
+        </div>
+
+        <div class="content-area">
+            <h3>아이디 찾기</h3>
+            <p id="nameof"><strong>홍길동</strong>님의 아이디</p>
+            <!-- 아이디 결과 박스 -->
+            <div class="result-box hidden">
+                <p><strong>sequence0101</strong></p>
+                <p>가입 날짜: 24.01.01</p>
+            </div>
+
+            <!-- 버튼들 -->
+            <div class="button-container hidden">
+                <button id="login" onclick="tologin()">로그인</button>
+                <button id="find-password" onclick="topass()">비밀번호 찾기 →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function tologin(){
+            window.location.href = "loginPage.html";
+        }
+        function topass(){
+            window.location.href = "passwordFind.html";
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const nameInput = document.getElementById('name');
+            const birthInput = document.getElementById('birth');
+            const phoneInput = document.getElementById('phone');
+            const emailInput = document.getElementById('email');
+            const findButton = document.getElementById('find-btn');
+            const resultBox = document.querySelector('.result-box');
+            const buttonContainer = document.querySelector('.button-container');
+            const genderButtons = document.querySelectorAll('.gender-buttons button');
+
+            // 성별 선택
+            genderButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    genderButtons.forEach(btn => btn.classList.remove('selected'));
+                    button.classList.add('selected');
+                });
+            });
+
+            // 입력 상태 확인
+            function checkInputs() {
+                const isNameCorrect = nameInput && nameInput.value.trim() === '홍길동';
+                const isBirthCorrect = birthInput && birthInput.value.trim() === '2000.01.01';
+                const isPhoneCorrect = phoneInput && phoneInput.value.trim() === '010-1234-5678';
+                const isEmailCorrect = emailInput && emailInput.value.trim() === 'sequence@email.com';
+                const isGenderSelected = Array.from(genderButtons).some(btn => btn.classList.contains('selected'));
+
+                return isNameCorrect && isBirthCorrect && isPhoneCorrect && isEmailCorrect && isGenderSelected;
+            }
+
+            // 버튼 활성화
+            findButton.addEventListener('click', () => {
+                if (checkInputs()) {
+                    resultBox.classList.remove('hidden');
+                    buttonContainer.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
