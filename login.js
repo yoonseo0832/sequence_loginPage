@@ -13,7 +13,7 @@ async function loginButton() {
         const response = await fetch('https://sequence.agong.store/api/login', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId, userPwd })
+            body: JSON({ userId, userPwd })
         });
 
         let data;
@@ -24,7 +24,7 @@ async function loginButton() {
         }
 
         if (response.ok) {
-            window.location.href = "/mainPage.html"; 
+            window.location.href = "/index.html"; 
         } else {
             wrongIdMessage.textContent = data.message || "로그인 실패. 다시 시도해주세요.";
             wrongIdMessage.style.visibility = "visible";
@@ -41,7 +41,6 @@ async function registerUser() {
     const userPwd = document.getElementById('inputPwd').value;  
     const wrongIdMessage = document.getElementById('wrongId'); 
 
-    // 1️⃣ 입력값 검증
     if (!userId || !userPwd) {
         wrongIdMessage.textContent = "아이디와 비밀번호를 입력해주세요.";
         wrongIdMessage.style.visibility = "visible";
@@ -59,7 +58,7 @@ async function registerUser() {
 
         if (response.ok) {
             alert("회원가입 성공! 로그인 페이지로 이동합니다.");
-            window.location.href = "/loginPage.html"; 
+            window.location.href = "/index.html"; 
         } else {
             wrongIdMessage.textContent = data.message || "회원가입 실패. 다시 시도해주세요.";
             wrongIdMessage.style.visibility = "visible";
