@@ -1,6 +1,6 @@
 async function loginButton() {
-    const userId = document.getElementById('inputId').value;
-    const userPwd = document.getElementById('inputPwd').value;
+    const username = document.getElementById('inputId').value;
+    const password = document.getElementById('inputPwd').value;
     const wrongIdMessage = document.getElementById('wrongId');
 
     if (!username || !password) {
